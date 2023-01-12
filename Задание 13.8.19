@@ -1,0 +1,26 @@
+count_of_tickets = int(input("Введите количество билетов:"))
+#создаем список возраста посетителей
+age_of_visitor = []
+#запрашиваем возраст каждого посетителя
+for i in range(0, count_of_tickets):
+    input_value = int(input(f"Введите возраст посетителя №{i + 1}:\n"))
+    age_of_visitor.append(input_value)
+
+#определяем стоимость билета, исходя из возраста посетителя
+    def price(age):
+        if age < 18:
+            return 0
+        elif 18 <= age < 25:
+            return 990
+        else:
+            return 1390
+
+#считаем стоимость всех билетов
+full_price = sum(map(price, age_of_visitor))
+
+#делаем скидку, если количество билетов больше 3
+discount_price = int(full_price * 0.9)
+if count_of_tickets > 3:
+    print('Стоимость всех билетов со скидкой составляет: ', discount_price, "руб.")
+else:
+    print('Стоимость всех билетов составляет: ', full_price, "руб.")
